@@ -11,29 +11,73 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+# Modern Bottom Navigation Bar
+
+A customizable and modern bottom navigation bar for Flutter applications.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Sleek design with animated selection effects.
+- Supports custom icons, labels, and colors for each navigation item.
+- Smooth transition animations when switching between items.
 
-## Getting started
+## Getting Started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+To use the `modern_bottom_nav_bar` package in your Flutter project, follow these steps:
+
+1. Add the dependency to your `pubspec.yaml` file:
+
+    ```yaml
+    dependencies:
+      modern_bottom_nav_bar: ^0.0.1
+    ```
+
+2. Install the package by running:
+
+    ```bash
+    flutter pub get
+    ```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Here's a basic example of how to use the `ModernBottomNavBar` in your Flutter app:
 
 ```dart
-const like = 'sample';
-```
+import 'package:flutter/material.dart';
+import 'package:modern_bottom_nav_bar/modern_bottom_nav_bar.dart';
 
-## Additional information
+void main() {
+  runApp(MyApp());
+}
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        bottomNavigationBar: ModernBottomNavBar(
+          items: [
+            BottomNavItem(
+              icon: Icons.home,
+              label: 'Home',
+              color: Colors.blue,
+            ),
+            BottomNavItem(
+              icon: Icons.search,
+              label: 'Search',
+              color: Colors.green,
+            ),
+            BottomNavItem(
+              icon: Icons.notifications,
+              label: 'Notifications',
+              color: Colors.red,
+            ),
+          ],
+          onItemSelected: (index) {
+            print('Selected index: $index');
+          },
+        ),
+      ),
+    );
+  }
+}
